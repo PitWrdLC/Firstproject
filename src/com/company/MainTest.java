@@ -48,7 +48,7 @@ public class MainTest {
                         "nameA;;;titlA;;;genrA;;;shelV",
                         "nameA titlA genrA shelA"));
         assertEquals(
-                "nameMONEY titlMONEY genrMONEY shelMONEY\n" +   // nameA titlA genrA shelA
+                "nameMONEY titlMONEY genrMONEY shelMONEY\n" + // nameA titlA genrA shelA
                         "nameB titlB genrB shelB\n" +
                         "nameC titlC genrC shelC\n" +
                         "nameD titlD genrD shelD\n" +

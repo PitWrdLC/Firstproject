@@ -32,11 +32,11 @@ public class Main {
         for (int i = 0; i < timez.length; i++) {
             System.out.print(timez[i] + " Этот элемент \n");
             if ((timez[i].equals("")) || (timez[i].equals(" "))) continue;
-            if (i == 0) {                                                                            // проверка 1
+            if (i == 0) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
-                    if (timez[i].equals(libraryAUT.get(l))) {                                     // вариант if (timez[i]!=libraryTIT.get(l)) spisokNum[l] = -1; не работате
+                    if (timez[i].equals(libraryAUT.get(l))) {
                         System.out.print(libraryAUT.get(l) + "              совпадает \n");
                     } else {
                         spisokNum[l] = -1;
@@ -44,7 +44,7 @@ public class Main {
                 }
             }
 
-            if (i == 1) {                                                                              // проверка 2
+            if (i == 1) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -55,7 +55,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 2) {                                                                              // проверка 3
+            if (i == 2) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -66,7 +66,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 3) {                                                                              // проверка 4
+            if (i == 3) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -80,8 +80,8 @@ public class Main {
         }
 
         for (int i = 0; i < spisokNum.length; i++) System.out.print(spisokNum[i]);
-        int chetchik =0;
-        for (int ti = 0; ti < spisokNum.length; ti++) {                                 //
+        int chetchik = 0;
+        for (int ti = 0; ti < spisokNum.length; ti++) {
             if (spisokNum[ti] == 0) chetchik++;
         }
         for (int ti = 0; ti < spisokNum.length; ti++) {
@@ -90,7 +90,7 @@ public class Main {
                 returning.append(libraryTIT.get(ti)).append(" ");
                 returning.append(libraryGEN.get(ti)).append(" ");
                 returning.append(librarySHE.get(ti));
-                if (chetchik!=1){
+                if (chetchik != 1) {
                     chetchik--;
                     returning.append("\n");
                 }
@@ -116,11 +116,11 @@ public class Main {
 
         for (int i = 0; i < timez.length; i++) {
             System.out.print(timez[i] + " Этот элемент \n");
-            if (i == 0) {                                                                            // проверка 1
+            if (i == 0) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
-                    if (timez[i].equals(libraryAUT.get(l))) {                                     // вариант if (timez[i]!=libraryTIT.get(l)) spisokNum[l] = -1; не работате
+                    if (timez[i].equals(libraryAUT.get(l))) {
                         System.out.print(libraryAUT.get(l) + "              совпадает \n");
                     } else {
                         spisokNum[l] = -1;
@@ -128,7 +128,7 @@ public class Main {
                 }
             }
 
-            if (i == 1) {                                                                              // проверка 2
+            if (i == 1) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -139,7 +139,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 2) {                                                                              // проверка 3
+            if (i == 2) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -150,7 +150,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 3) {                                                                              // проверка 4
+            if (i == 3) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -243,11 +243,11 @@ public class Main {
 
         for (int i = 0; i < timez.length; i++) {
             System.out.print(timez[i] + " Этот элемент \n");
-            if (i == 0) {                                                                            // проверка 1
+            if (i == 0) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
-                    if (timez[i].equals(libraryAUT.get(l))) {                                     // вариант if (timez[i]!=libraryTIT.get(l)) spisokNum[l] = -1; не работате
+                    if (timez[i].equals(libraryAUT.get(l))) {
                         System.out.print(libraryAUT.get(l) + "              совпадает \n");
                     } else {
                         spisokNum[l] = -1;
@@ -255,7 +255,7 @@ public class Main {
                 }
             }
 
-            if (i == 1) {                                                                              // проверка 2
+            if (i == 1) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -266,7 +266,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 2) {                                                                              // проверка 3
+            if (i == 2) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -277,7 +277,7 @@ public class Main {
                     }
                 }
             }
-            if (i == 3) {                                                                              // проверка 4
+            if (i == 3) {
                 for (int l = 0; l < spisokNum.length; l++) {
                     if (spisokNum[l] == -1) continue;
 
@@ -351,141 +351,3 @@ class Library {
     }
 
 }
-
-/*
-
-    public static String SScanBook(String timerY, String timerZ) {
-        String returning = "";
-        String[] massScan = timerZ.split(";;;");
-        String[] massLibr = timerY.split("\n");
-        int schetchic = 0;
-        for (int ml = 0; ml < massLibr.length; ml++) {
-            int timerNumber = 0;
-            String[] timeML = massLibr[ml].split(";;;");
-            for (int tml = 0; tml < timeML.length; tml++) {
-                if ((massScan[tml].equals(" ")) || (massScan[tml].equals(""))) timerNumber++;
-                if (massScan[tml].equals(timeML[tml])) timerNumber++;
-
-                if (timerNumber == 4) {
-                    if (schetchic == 0) {
-                        returning += massLibr[ml];
-                        schetchic++;
-                    } else if (schetchic >= 1) {
-                        returning += "\n" + massLibr[ml];
-                    }
-                }
-            }
-        }
-        return returning;
-    }
-
-    public static String DdelBook(String timerY, String timerZ) {
-        int time = -1;
-        String returning = "";
-        String[] timeY = timerY.split("\n");
-
-        for (int i = 0; i < timeY.length; i++) {
-            if (timeY[i].equals(timerZ)) time += i + 1;
-        }
-        for (int i = 0; i < timeY.length; i++) {
-            if (i != time) {
-                returning += timeY[i];
-                if ((i != timeY.length - 1)) returning += "\n";
-            }
-        }
-        return returning;
-    }
-
-
-*/
-
-
-
-
-/*
-class Library {
-   public ArrayList<String[]> libraryFin = new ArrayList<String[]>();
-
-    public void libraryFinTest(){
-        ArrayList<String[]> librTest = new ArrayList<String[]>();
-        String timer = "a;;;b;;;c;;;d\nk;;;l;;;m;;;d\nd;;;u;;;b;;;m\nz;;;o;;;p;;;p\na;;;w;;;m;;;d\na;;;a;;;a;;;a\n";
-        String[] timer2 = timer.split("\n");
-        for(int i =0;i<timer2.length;i++){
-            librTest.add(timer2[i].split(";;;"));
-        }
-        libraryFin = librTest;
-    }
-
-}
-*/
-
-/*
-        int[] spisokNum = new int[libraryAUT.size() + 1];
-        for (int i = 0; i < spisokNum.length - 1; i++) {
-            spisokNum[i] = i;
-            System.out.print(spisokNum[i] + "\n");
-        }
-        int minusLib = -libraryAUT.size();
-
-        for (int tiz = minusLib; tiz  < 0; tiz++ ) {
-            System.out.print(tiz);
-        }
-        int[] spisokTime = spisokNum;
-
-        for (int tiz = 0; tiz < timez.length; tiz++) {
-            System.out.print(timez[tiz] + " ЭТО ЗНАЧНЕИЕ  \n");
-            if (tiz == 0) {
-                for (int til =0; til <= libraryAUT.size(); tiz++) {
-                    System.out.print(libraryAUT.get(-til) + " ВМЕСТЕ С ЭТИМ ЗНАЧЕНИЕМ");
-                }
-            }
-        }
-
-for (int tiz = timez.length; tiz == 0; tiz--) {                     //по убыванию!
-            System.out.print(timez[tiz] + " ЭТО ЗНАЧНЕИЕ  1\n");
-            if (tiz == 0) {
-                System.out.print(timez[tiz] + "TIZ 1\n");
-                for (int til = 0; til < libraryAUT.size(); tiz++) {
-                    System.out.print(libraryAUT.get(til) + " ВМЕСТЕ С ЭТИМ ЗНАЧЕНИЕМ");
-                    if (timez[tiz] != libraryAUT.get(til)) {
-                        System.out.print(til + " сработало ");
-                        returning += (libraryAUT.get(til) + " " + libraryTIT.get(til) + " " + libraryGEN.get(til) + " " + librarySHE.get(til) + "\n");
-                        libraryAUT.remove(til);
-                        libraryTIT.remove(til);
-                        libraryGEN.remove(til);
-                        librarySHE.remove(til);
-                        System.out.print(returning);
-                    }
-                }
-            }}
-
-
-
-
-
-for (int tiz = timez.length; tiz == 0; tiz--) {                     //по убыванию!
-            System.out.print(timez[tiz] + " ЭТО ЗНАЧНЕИЕ  1\n");
-            if (tiz == 0) {
-                System.out.print(timez[tiz] + "TIZ 1\n");
-                for (int til = 0; til < libraryAUT.size(); tiz++) {
-                    System.out.print(libraryAUT.get(til) + " ВМЕСТЕ С ЭТИМ ЗНАЧЕНИЕМ");
-                    if (timez[tiz] != libraryAUT.get(til)) {
-                        System.out.print(til + " сработало ");
-                        returning += (libraryAUT.get(til) + " " + libraryTIT.get(til) + " " + libraryGEN.get(til) + " " + librarySHE.get(til) + "\n");
-                        libraryAUT.remove(til);
-                        libraryTIT.remove(til);
-                        libraryGEN.remove(til);
-                        librarySHE.remove(til);
-                        System.out.print(returning);
-                    }
-                }
-            }
-            }    */
-
-    /*    for (int i = 0; i < timeY.length; i++) {
-            if (timeY[i].equals(timerZ)) {
-                returning += timerK;
-            } else returning += timeY[i];
-            if (i != timeY.length - 1) returning += "\n";
-
-        }*/
