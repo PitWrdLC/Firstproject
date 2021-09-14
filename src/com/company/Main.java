@@ -1,353 +1,194 @@
 package com.company;
 
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Main {
+class Main {
+    public static void main(String[] args) {
+        Book b1 = new Book("aa", "bb", "cc", "dd");
+        Book b2 = new Book("bb", "bb", "cc", "dd");
+        Book b3 = new Book("aa", "bb", "cc", "dd");
+        Book b4 = new Book("bb", "bb", "cc", "kk");
+        Book b5 = new Book("dd", "dd", "dd", "dd");
+        Book b6 = new Book("bb", "bb", "bb", "bb");
+        Book b7 = new Book(" "," "," "," ");
+        Book testReplaced = new Book("test", "test", "test", "test");
+        Book testScan = new Book("aa", "bb", "cc", null);
+        Library bolvanchik = new Library();
 
-    public static String getProblem(String x, String z, String k) {
-        if (x.equals("Add")) return AddBook(z);
-        if (x.equals("Rea")) return ReaBook(z);
-        if (x.equals("Chg")) return CchangeBook(z, k);
-        if (x.equals("Del")) return DelBook(z);
-        if (x.equals("Scn")) return ScnBook(z);
-        return "";
+
+        b1.ReplaceKode();
+        b7.ReplaceBook();
+
+        bolvanchik.AddBook(b1);
+        bolvanchik.AddBook(b2);
+        bolvanchik.AddBook(b3);
+        bolvanchik.AddBook(b4);
+        bolvanchik.AddBook(b5);
+        bolvanchik.AddBook(b6);
+        bolvanchik.AddBook(b7);
+
+        bolvanchik.AddBook(testReplaced);
+        bolvanchik.ReaBook(bolvanchik);
+        bolvanchik.DelBook(bolvanchik, testReplaced);
+        bolvanchik.ReaBook(bolvanchik);
+        bolvanchik.ScnBook(testScan, bolvanchik);
+        bolvanchik.ReaBook(bolvanchik);
+
+        Library testScanAllBook = bolvanchik.ScnBook(testScan, bolvanchik);
+        testScanAllBook.ReaBook(testScanAllBook);
+
+
+        }
     }
-
-    public static String ScnBook(String timerZ) {
-        Library libAuth = new Library();
-        ArrayList<String> libraryAUT = libAuth.LibAuthorCl();
-        Library libTitle = new Library();
-        ArrayList<String> libraryTIT = libTitle.LibTitleCl();
-        Library libGenre = new Library();
-        ArrayList<String> libraryGEN = libGenre.LibGenreCl();
-        Library libShelf = new Library();
-        ArrayList<String> librarySHE = libShelf.LibShelfCl();
-        StringBuilder returning = new StringBuilder();
-        String[] timez = timerZ.split(";;;");
-
-        int[] spisokNum = new int[libraryAUT.size()];
-
-        for (int i = 0; i < timez.length; i++) {
-            System.out.print(timez[i] + " Этот элемент \n");
-            if ((timez[i].equals("")) || (timez[i].equals(" "))) continue;
-            if (i == 0) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryAUT.get(l))) {
-                        System.out.print(libraryAUT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-
-            if (i == 1) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryTIT.get(l))) {
-                        System.out.print(libraryTIT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 2) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryGEN.get(l))) {
-                        System.out.print(libraryGEN.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 3) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(librarySHE.get(l))) {
-                        System.out.print(librarySHE.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < spisokNum.length; i++) System.out.print(spisokNum[i]);
-        int chetchik = 0;
-        for (int ti = 0; ti < spisokNum.length; ti++) {
-            if (spisokNum[ti] == 0) chetchik++;
-        }
-        for (int ti = 0; ti < spisokNum.length; ti++) {
-            if (spisokNum[ti] == 0) {
-                returning.append(libraryAUT.get(ti)).append(" ");
-                returning.append(libraryTIT.get(ti)).append(" ");
-                returning.append(libraryGEN.get(ti)).append(" ");
-                returning.append(librarySHE.get(ti));
-                if (chetchik != 1) {
-                    chetchik--;
-                    returning.append("\n");
-                }
-            }
-
-        }
-        return returning.toString();
-    }
-
-    public static String DelBook(String timerZ) {
-        Library libAuth = new Library();
-        ArrayList<String> libraryAUT = libAuth.LibAuthorCl();
-        Library libTitle = new Library();
-        ArrayList<String> libraryTIT = libTitle.LibTitleCl();
-        Library libGenre = new Library();
-        ArrayList<String> libraryGEN = libGenre.LibGenreCl();
-        Library libShelf = new Library();
-        ArrayList<String> librarySHE = libShelf.LibShelfCl();
-        StringBuilder returning = new StringBuilder();
-        String[] timez = timerZ.split(";;;");
-
-        int[] spisokNum = new int[libraryAUT.size()];
-
-        for (int i = 0; i < timez.length; i++) {
-            System.out.print(timez[i] + " Этот элемент \n");
-            if (i == 0) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryAUT.get(l))) {
-                        System.out.print(libraryAUT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-
-            if (i == 1) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryTIT.get(l))) {
-                        System.out.print(libraryTIT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 2) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryGEN.get(l))) {
-                        System.out.print(libraryGEN.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 3) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(librarySHE.get(l))) {
-                        System.out.print(librarySHE.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < spisokNum.length; i++) System.out.print(spisokNum[i]);
-
-        for (int ti = 0; ti < spisokNum.length; ti++) {
-            if (spisokNum[ti] == 0) continue;
-            if (spisokNum[ti] == -1) {
-                returning.append(libraryAUT.get(ti)).append(" ");
-                returning.append(libraryTIT.get(ti)).append(" ");
-                returning.append(libraryGEN.get(ti)).append(" ");
-                returning.append(librarySHE.get(ti));
-            }
-            if (spisokNum.length - 1 != ti) returning.append("\n");
-        }
-        return returning.toString();
-    }
-
-    public static String ReaBook(String timerZ) {
-        Library libAuth = new Library();
-        ArrayList<String> libraryAUT = libAuth.LibAuthorCl();
-        Library libTitle = new Library();
-        ArrayList<String> libraryTIT = libTitle.LibTitleCl();
-        Library libGenre = new Library();
-        ArrayList<String> libraryGEN = libGenre.LibGenreCl();
-        Library libShelf = new Library();
-        ArrayList<String> librarySHE = libShelf.LibShelfCl();
-        StringBuilder finish = new StringBuilder();
-        for (int t = 0; t < libraryAUT.size(); t++) {
-            finish.append(libraryAUT.get(t));
-            finish.append(" ");
-            finish.append(libraryTIT.get(t));
-            finish.append(" ");
-            finish.append(libraryGEN.get(t));
-            finish.append(" ");
-            finish.append(librarySHE.get(t));
-            if (t < libraryAUT.size() - 1) finish.append("\n");
-        }
-        return finish.toString();
-    }
-
-    public static String AddBook(String timerZ) {
-        Library libAuth = new Library();
-        ArrayList<String> libraryAUT = libAuth.LibAuthorCl();
-        Library libTitle = new Library();
-        ArrayList<String> libraryTIT = libTitle.LibTitleCl();
-        Library libGenre = new Library();
-        ArrayList<String> libraryGEN = libGenre.LibGenreCl();
-        Library libShelf = new Library();
-        ArrayList<String> librarySHE = libShelf.LibShelfCl();
-        StringBuilder finish = new StringBuilder();
-
-        for (int t = 0; t < libraryAUT.size(); t++) {
-            if (t == 0) finish.append(timerZ).append("\n");
-            finish.append(libraryAUT.get(t));
-            finish.append(" ");
-            finish.append(libraryTIT.get(t));
-            finish.append(" ");
-            finish.append(libraryGEN.get(t));
-            finish.append(" ");
-            finish.append(librarySHE.get(t));
-            if (t < libraryAUT.size() - 1) finish.append("\n");
-
-        }
-        return finish.toString();
-    }
-
-    public static String CchangeBook(String timerZ, String timerK) {
-        Library libAuth = new Library();
-        ArrayList<String> libraryAUT = libAuth.LibAuthorCl();
-        Library libTitle = new Library();
-        ArrayList<String> libraryTIT = libTitle.LibTitleCl();
-        Library libGenre = new Library();
-        ArrayList<String> libraryGEN = libGenre.LibGenreCl();
-        Library libShelf = new Library();
-        ArrayList<String> librarySHE = libShelf.LibShelfCl();
-        StringBuilder returning = new StringBuilder();
-        String[] timez = timerZ.split(";;;");
-
-        int[] spisokNum = new int[libraryAUT.size()];
-
-        for (int i = 0; i < timez.length; i++) {
-            System.out.print(timez[i] + " Этот элемент \n");
-            if (i == 0) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryAUT.get(l))) {
-                        System.out.print(libraryAUT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-
-            if (i == 1) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryTIT.get(l))) {
-                        System.out.print(libraryTIT.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 2) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(libraryGEN.get(l))) {
-                        System.out.print(libraryGEN.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-            if (i == 3) {
-                for (int l = 0; l < spisokNum.length; l++) {
-                    if (spisokNum[l] == -1) continue;
-
-                    if (timez[i].equals(librarySHE.get(l))) {
-                        System.out.print(librarySHE.get(l) + "              совпадает \n");
-                    } else {
-                        spisokNum[l] = -1;
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < spisokNum.length; i++) System.out.print(spisokNum[i]);
-
-        for (int ti = 0; ti < spisokNum.length; ti++) {
-            if (spisokNum[ti] == 0) returning.append(timerK);
-            if (spisokNum[ti] == -1) {
-                returning.append(libraryAUT.get(ti)).append(" ");
-                returning.append(libraryTIT.get(ti)).append(" ");
-                returning.append(libraryGEN.get(ti)).append(" ");
-                returning.append(librarySHE.get(ti));
-            }
-            if (spisokNum.length - 1 != ti) returning.append("\n");
-        }
-        return returning.toString();
-    }
-}
 
 
 class Library {
-    public ArrayList<String[]> libraryFinTest() {
-        ArrayList<String[]> returning = new ArrayList<String[]>();
-        String timer = "a;;;b;;;c;;;d\nk;;;l;;;m;;;d\nd;;;u;;;b;;;m\nz;;;o;;;p;;;p\na;;;w;;;m;;;d\na;;;a;;;a;;;a\n";
-        String[] timer2 = timer.split("\n");
-        for (int i = 0; i < timer2.length; i++) {
-            returning.add(timer2[i].split(";;;"));
+    ArrayList<Book> lib;
+
+    public Library() {
+        this.lib = new ArrayList<>();
+    }
+
+    public void AddBook(Book addBook) {                                             // ADD fin
+        this.lib.add(addBook);
+    }
+
+    public Library ScnBook(Book object, Library libScnBook) {                      // SCN fin
+        Library result = new Library();
+        System.out.print("!!!!!!!!!!! ");
+        for (int i = 0; i < libScnBook.lib.size(); i++) {
+            if ((libScnBook.lib.get(i).name.equals(object.name)) || (object.name == null)) {
+                if ((libScnBook.lib.get(i).author.equals(object.author)) || (object.author == null)) {
+                    if ((libScnBook.lib.get(i).genre.equals(object.genre)) || (object.genre == null)) {
+                        if ((libScnBook.lib.get(i).kode.equals(object.kode)) || (object.kode == null)) {
+                            result.lib.add(libScnBook.lib.get(i));
+
+                        }
+                    }
+                }
+
+            }
         }
-        return returning;
+        return result;
     }
 
-    public ArrayList<String> LibAuthorCl() {
-        ArrayList<String> returning = new ArrayList<String>();
-        String timer1 = "nameA;;;nameB;;;nameC;;;nameD;;;nameE;;;nameA;;;nameH";
-        String[] timer2 = timer1.split(";;;");
-        returning.addAll(Arrays.asList(timer2));
-        return returning;
+    public Library DelBook(Library delBookInLib, Book object) {              // DEL fin
+        Library result = delBookInLib;
+        int time = 0;
+        for (int i = 0; i < delBookInLib.lib.size(); i++) {
+            if(time == 1 ) break;
+            System.out.print("&&&&&&&&&&&&&&& ");
+            if (delBookInLib.lib.get(i).name.equals(object.name)) {
+                if (delBookInLib.lib.get(i).author.equals(object.author)) {
+                    if (delBookInLib.lib.get(i).genre.equals(object.genre)) {
+                        if (delBookInLib.lib.get(i).kode.equals(object.kode)) {
+                            result.lib.remove(delBookInLib.lib.get(i));
+                            time ++;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
     }
 
-    public ArrayList<String> LibTitleCl() {
-        ArrayList<String> returning = new ArrayList<String>();
-        String timer1 = "titlA;;;titlB;;;titlC;;;titlD;;;titlE;;;titlA;;;titlH";
-        String[] timer2 = timer1.split(";;;");
-        returning.addAll(Arrays.asList(timer2));
-        return returning;
+    public void ReaBook(Library rbBook) {
+        System.out.print("AAAAAAAAAAAAAAA " + "\n ");                                 //REA fin
+        for (int i = 0; i < rbBook.lib.size(); i++) {
+            System.out.print(rbBook.lib.get(i).name + " ");
+            System.out.print(rbBook.lib.get(i).author + " ");
+            System.out.print(rbBook.lib.get(i).genre + " ");
+            System.out.print(rbBook.lib.get(i).kode + "\n");
+        }
     }
-
-    public ArrayList<String> LibGenreCl() {
-        ArrayList<String> returning = new ArrayList<String>();
-        String timer1 = "genrA;;;genrB;;;genrC;;;genrD;;;genrE;;;genrA;;;genrH";
-        String[] timer2 = timer1.split(";;;");
-        returning.addAll(Arrays.asList(timer2));
-        return returning;
+}
+class Book {
+    String name;
+    String author;
+    String genre;
+    String kode;
+    public Book(String name, String author, String genre, String kode) {
+        this.name = name;
+        this.author = author;
+        this.genre = genre;
+        this.kode = kode;
     }
+    public void ReplaceKode() {
+        kode = "Libr's table";
+    }
+    public void ReplaceBook() {
+        name = "This";
+        author = "IS";
+        genre = "new";
+        kode = "BOOOOOOOOOOOOOOOOK";
+    }
+}
 
-    public ArrayList<String> LibShelfCl() {
-        ArrayList<String> returning = new ArrayList<String>();
-        String timer1 = "shelA;;;shelB;;;shelC;;;shelD;;;shelE;;;shelV;;;shelH";
-        String[] timer2 = timer1.split(";;;");
-        returning.addAll(Arrays.asList(timer2));
-        return returning;
+             /*
+class Min{
+    public static void main(String[] args){
+        Tovar cheese = new Tovar(100, "cheese");
+        Tovar bread = new Tovar(20, "Bread");
+
+        cheese.IzmenenieCeni();
+
+        Sklad sklad = new Sklad();
+        sklad.DobavitTovar (cheese, 10);
+        sklad.DobavitTovar (bread, 20);
+
+        Map<Tovar,Integer> cheeseAmount = sklad.TovarByTovarAndKolichestvo ("cheese");
+
+        System.out.println(cheeseAmount.toString());
+
     }
 
 }
+
+class Tovar {
+    int cena;
+    String nazvanie;
+
+    public Tovar(int nachlnayaCena, String nazvanie) {
+        this.cena = nachlnayaCena;
+        this.nazvanie = nazvanie;
+    }
+
+    public void IzmenenieCeni() {
+        cena += 10;
+    }
+}
+
+class Sclad {
+    Map<Tovar, Integer> tovar;
+
+    public void sklad() {
+        this.tovar = new HashMap<>();
+    }
+
+    public void DobavitTovar(Tovar dobavitTovar, int kolichestvo) {
+        tovar.put(dobavitTovar, kolichestvo);
+    }
+
+    public List<Tovar> findTovarByNazvanie(String nazvanie) {
+        List<Tovar> result = new ArrayList<>();
+        for (Map.Entry<Tovar, Integer> item : this.tovar) {
+            if (item.getKey().nazvanie.equals(nazvanie)) {
+                result.add(item.getKey());
+            }
+        }
+        return result;
+    }
+
+    public Map<Tovar, Integer> TovarByTovarAndKolichestvo(String nazvanie) {
+        Map<Tovar, Integer> result = new HashMap<>();
+        for (Map.Entry<Tovar, Integer> item : this.tovar) {
+            Tovar time = item.getKey();
+            if ((time.nazvanie.equals(nazvanie)) {
+                result.put(time, item.getValue());
+            }
+
+        }
+        return result;
+    }
+}
+    */
