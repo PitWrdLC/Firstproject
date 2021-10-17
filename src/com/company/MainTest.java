@@ -25,12 +25,13 @@ public class MainTest {
     public void DelBookTest() {
         Book a1 = new Book("aa", "cc", "cc", "dd");
         Book a2 = new Book("aa", "bb", "cc", "dd");
+        Book a3 = new Book("aa", "cc", "cc", "dd");
         Library libTestOne = new Library();
         libTestOne.AddBook(a1);
         libTestOne.AddBook(a2);
-        libTestOne.DelBook(libTestOne, a2);
+        libTestOne.DelBook(libTestOne, a1);
         Library libTestTwo = new Library();
-        libTestTwo.AddBook(a1);
+        libTestTwo.AddBook(a2);
 
         Assert.assertEquals(libTestTwo.lib.get(0).name,libTestOne.lib.get(0).name);
         Assert.assertEquals(libTestTwo.lib.get(0).author,libTestOne.lib.get(0).author);

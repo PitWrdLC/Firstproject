@@ -10,13 +10,13 @@ class Main {
         Book b4 = new Book("bb", "bb", "cc", "kk");
         Book b5 = new Book("dd", "dd", "dd", "dd");
         Book b6 = new Book("bb", "bb", "bb", "bb");
-        Book b7 = new Book(" "," "," "," ");
+        Book b7 = new Book(" ", " ", " ", " ");
         Book testReplaced = new Book("test", "test", "test", "test");
         Book testScan = new Book("aa", "bb", "cc", null);
         Library bolvanchik = new Library();
+        String testReplaceKode = "new's kode ";
 
-
-        b1.ReplaceKode();
+        b1.ReplaceKode(testReplaceKode);
         b7.ReplaceBook();
 
         bolvanchik.AddBook(b1);
@@ -29,7 +29,9 @@ class Main {
 
         bolvanchik.AddBook(testReplaced);
         bolvanchik.ReaBook(bolvanchik);
+
         bolvanchik.DelBook(bolvanchik, testReplaced);
+
         bolvanchik.ReaBook(bolvanchik);
         bolvanchik.ScnBook(testScan, bolvanchik);
         bolvanchik.ReaBook(bolvanchik);
@@ -38,60 +40,41 @@ class Main {
         testScanAllBook.ReaBook(testScanAllBook);
 
 
-        }
     }
+}
 
 
 class Library {
     ArrayList<Book> lib;
-
     public Library() {
         this.lib = new ArrayList<>();
     }
-
     public void AddBook(Book addBook) {                                             // ADD fin
         this.lib.add(addBook);
     }
-
-    public Library ScnBook(Book object, Library libScnBook) {                      // SCN fin
+    public Library ScnBook(Book object, Library libScnBook) {                      // SCN
         Library result = new Library();
         System.out.print("!!!!!!!!!!! ");
         for (int i = 0; i < libScnBook.lib.size(); i++) {
-            if ((libScnBook.lib.get(i).name.equals(object.name)) || (object.name == null)) {
-                if ((libScnBook.lib.get(i).author.equals(object.author)) || (object.author == null)) {
-                    if ((libScnBook.lib.get(i).genre.equals(object.genre)) || (object.genre == null)) {
-                        if ((libScnBook.lib.get(i).kode.equals(object.kode)) || (object.kode == null)) {
-                            result.lib.add(libScnBook.lib.get(i));
-
-                        }
-                    }
+                if(libScnBook.lib.get(i).equals(object)){
+                    result.lib.add(libScnBook.lib.get(i));
                 }
-
-            }
         }
         return result;
     }
-
-    public Library DelBook(Library delBookInLib, Book object) {              // DEL fin
-        Library result = delBookInLib;
+    public void DelBook(Library delBookInLib, Book object) {              // DEL fin
         int time = 0;
         for (int i = 0; i < delBookInLib.lib.size(); i++) {
-            if(time == 1 ) break;
+            if (time == 1) break;
             System.out.print("&&&&&&&&&&&&&&& ");
-            if (delBookInLib.lib.get(i).name.equals(object.name)) {
-                if (delBookInLib.lib.get(i).author.equals(object.author)) {
-                    if (delBookInLib.lib.get(i).genre.equals(object.genre)) {
-                        if (delBookInLib.lib.get(i).kode.equals(object.kode)) {
-                            result.lib.remove(delBookInLib.lib.get(i));
-                            time ++;
-                        }
-                    }
-                }
+            if (delBookInLib.lib.get(i).equals(object)) {
+
+                delBookInLib.lib.remove(delBookInLib.lib.get(i));
+                time++;
+
             }
         }
-        return result;
     }
-
     public void ReaBook(Library rbBook) {
         System.out.print("AAAAAAAAAAAAAAA " + "\n ");                                 //REA fin
         for (int i = 0; i < rbBook.lib.size(); i++) {
@@ -99,23 +82,49 @@ class Library {
             System.out.print(rbBook.lib.get(i).author + " ");
             System.out.print(rbBook.lib.get(i).genre + " ");
             System.out.print(rbBook.lib.get(i).kode + "\n");
+            rbBook.lib.get(i).toString();
         }
     }
+
+
 }
+
 class Book {
     String name;
     String author;
     String genre;
     String kode;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Book  ){
+            System.out.print("ОТЛИЧНО ПРОДОЛЖАЙ");
+                      if (this.name == ((Book) obj).name) {
+                          if ((((this.author == ((Book) obj).author)) || ((Book) obj).author == null)) {
+                              if ((((this.genre == ((Book) obj).genre)) || ((Book) obj).genre == null)) {
+                                 if ((((this.kode == ((Book) obj).kode)) || ((Book) obj).kode == null)) {
+                                     System.out.print("nice try ");
+            return true;
+                                  }
+                             }
+                         }
+                    }
+        }
+        System.out.print("bad try ");
+        return super.equals(obj);
+    }
+
     public Book(String name, String author, String genre, String kode) {
         this.name = name;
         this.author = author;
         this.genre = genre;
         this.kode = kode;
     }
-    public void ReplaceKode() {
-        kode = "Libr's table";
+
+    public void ReplaceKode(String testRB) {
+        kode = testRB;
     }
+
     public void ReplaceBook() {
         name = "This";
         author = "IS";
@@ -125,6 +134,31 @@ class Book {
 }
 
              /*
+              if (delBookInLib.lib.get(i).name.equals(object.name)) {
+                if (delBookInLib.lib.get(i).author.equals(object.author)) {
+                    if (delBookInLib.lib.get(i).genre.equals(object.genre)) {
+                        if (delBookInLib.lib.get(i).kode.equals(object.kode)) {
+                            result.lib.remove(delBookInLib.lib.get(i));
+                            time ++;
+                        }
+                    }
+                }
+            }
+
+                if ((libScnBook.lib.get(i).name.equals(object.name)) || (object.name == null)) {
+                if ((libScnBook.lib.get(i).author.equals(object.author)) || (object.author == null)) {
+                    if ((libScnBook.lib.get(i).genre.equals(object.genre)) || (object.genre == null)) {
+                        if ((libScnBook.lib.get(i).kode.equals(object.kode)) || (object.kode == null)) {
+                            result.lib.add(libScnBook.lib.get(i));
+
+                        }
+                    }
+                }
+            }
+
+
+
+
 class Min{
     public static void main(String[] args){
         Tovar cheese = new Tovar(100, "cheese");
