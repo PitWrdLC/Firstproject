@@ -114,10 +114,9 @@ class Book {
                 }
             }
         }
-        System.out.print("bad try \n");
+    //    System.out.print("bad try \n");
         return super.equals(obj);
     }
-
     public Book(String name, String author, String genre, String kode) {
         this.name = name;
         this.author = author;
