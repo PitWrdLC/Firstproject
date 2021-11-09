@@ -80,6 +80,7 @@ class Library {
             System.out.print(rbBook.lib.get(i).author + " ");
             System.out.print(rbBook.lib.get(i).genre + " ");
             System.out.print(rbBook.lib.get(i).kode + "\n");
+            rbBook.lib.get(i).toString();
         }
     }
 }
