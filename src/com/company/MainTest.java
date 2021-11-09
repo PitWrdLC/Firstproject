@@ -29,7 +29,7 @@ public class MainTest {
         Library libTestOne = new Library();
         libTestOne.AddBook(a1);
         libTestOne.AddBook(a2);
-        libTestOne.DelBook(libTestOne, a1);
+        libTestOne.DelBook( a1);
         Library libTestTwo = new Library();
         libTestTwo.AddBook(a2);
 
@@ -59,7 +59,7 @@ public class MainTest {
         libTestOne.AddBook(b5);
         libTestOne.AddBook(b6);
         libTestOne.AddBook(b7);
-        libTestOne = libTestOne.ScnBook(btest, libTestOne);
+        libTestOne = libTestOne.ScnBook(btest);
         Library libTestTwo = new Library();
         libTestTwo.AddBook(btest);
 
